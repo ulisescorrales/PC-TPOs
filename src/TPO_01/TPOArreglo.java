@@ -8,8 +8,7 @@ package TPO_01;
 import java.util.Random;
 
 /**
- *
- * @author ulises.corrales
+ * 
  */
 public class TPOArreglo {
 
@@ -39,8 +38,17 @@ public class TPOArreglo {
     }
     public static void crearyComenzarSumadores(Sumador[] sum,int[] arr){
         int i, longitud=sum.length;
+        int cociente=50000/sum.length;
+        int resto=50000%sum.length;
+        int inicio=0,fin=0;
+        fin=50000/sum.length;
         for(i=0;i<longitud;i++){
-            sum[i]=crearYComenzar(0,1000,arr);
+            sum[i]=crearYComenzar(inicio,fin,arr);
+            inicio=fin+1;
+            fin=cociente*i;
+            if(i==sum.length-1){
+                fin=fin+resto;
+            }
         }
     }
 
