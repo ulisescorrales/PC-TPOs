@@ -11,7 +11,7 @@ import java.util.Random;
  * 
  */
 public class TPOArreglo {
-
+//Punto 6 del TP3
     /**
      * @param args the command line arguments
      */
@@ -29,26 +29,24 @@ public class TPOArreglo {
         //Enviar join() a cada hilo para que no se ejecute  el método sumaConcurrente() sin que terminen de ejecutarse los hilos
         join(sumador);
 
-        //Suma secuencial
-        int suma = sumaSecuencial(arreglo);
-        System.out.println("Suma Secuencial:" + suma);
-        //SumaConcurrente
-
+        //Mostrar suma secuencial        
+        System.out.println("Suma Secuencial:" + sumaSecuencial(arreglo));
+        //Mostrar suma concurrente
         System.out.println("Suma Concurrente: " + sumaConcurrente(sumador));
     }
     public static void crearyComenzarSumadores(Sumador[] sum,int[] arr){
         int i, longitud=sum.length;
         int cociente=50000/sum.length;
         int resto=50000%sum.length;
-        int inicio=0,fin=0;
-        fin=50000/sum.length;
-        for(i=0;i<longitud;i++){
-            sum[i]=crearYComenzar(inicio,fin,arr);
-            inicio=fin+1;
-            fin=cociente*i;
-            if(i==sum.length-1){
-                fin=fin+resto;
+        int inicio=0;
+        int fin;
+        for(i=0;i<longitud;i++){            
+            fin=cociente*(i+1);
+            if(i==sum.length-1){//Si es el último, sumar el resto
+                fin=fin+resto-1;
             }
+            sum[i]=crearYComenzar(inicio,fin,arr);                        
+            inicio=fin+1;
         }
     }
 
