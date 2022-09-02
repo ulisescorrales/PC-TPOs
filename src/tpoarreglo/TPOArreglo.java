@@ -21,11 +21,11 @@ public class TPOArreglo {
         llenarArreglo(arreglo);
         int suma = sumaSecuencial(arreglo);
 
-        MiHilo hilo1 = crearYComenzar(0, 10000, arreglo);
-        MiHilo hilo2 = crearYComenzar(10001, 20000, arreglo);
-        MiHilo hilo3 = crearYComenzar(20001, 30000, arreglo);
-        MiHilo hilo4 = crearYComenzar(30001, 40000, arreglo);
-        MiHilo hilo5 = crearYComenzar(40001, 49999, arreglo);
+        Sumador hilo1 = crearYComenzar(0, 10000, arreglo);
+        Sumador hilo2 = crearYComenzar(10001, 20000, arreglo);
+        Sumador hilo3 = crearYComenzar(20001, 30000, arreglo);
+        Sumador hilo4 = crearYComenzar(30001, 40000, arreglo);
+        Sumador hilo5 = crearYComenzar(40001, 49999, arreglo);
 
         try {
             hilo1.join();
@@ -44,7 +44,7 @@ public class TPOArreglo {
         System.out.println("Suma Concurrente: " + sumaConcurrente(hilo1, hilo2, hilo3, hilo4, hilo5));
     }
 
-    public static int sumaConcurrente(MiHilo h1, MiHilo h2, MiHilo h3, MiHilo h4, MiHilo h5) {
+    public static int sumaConcurrente(Sumador h1, Sumador h2, Sumador h3, Sumador h4, Sumador h5) {
         int suma = 0;
         suma = h1.getSuma() + h2.getSuma() + h3.getSuma() + h4.getSuma() + h5.getSuma();
         return suma;
@@ -72,8 +72,8 @@ public class TPOArreglo {
     }
 
     //Un método de fábrica que crea e inicia un hilo.
-    public static MiHilo crearYComenzar(int inicio, int fin, int[] arreglo) {
-        MiHilo miHilo = new MiHilo(inicio, fin, arreglo);
+    public static Sumador crearYComenzar(int inicio, int fin, int[] arreglo) {
+        Sumador miHilo = new Sumador(inicio, fin, arreglo);
         miHilo.start(); //Inicia el hilo
         //miHilo.hilo.join();
         return miHilo;
