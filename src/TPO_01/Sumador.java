@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tpoarreglo;
+package TPO_01;
 
 /**
  *
  * @author ulises.corrales
  */
-class MiHilo extends Thread {
+class Sumador extends Thread {
 
-    int inicio;
-    int fin;
-    int[] arreglo;
-    int suma = 0;
+    private final int inicio;
+    private final int fin;
+    private final int[] arreglo;
+    private int suma = 0;
 
     //Construye un nuevo hilo.
-    MiHilo(int inicio, int fin, int[] arreglo) {
+    public Sumador(int inicio, int fin, int[] arreglo) {
         this.inicio = inicio;
         this.fin = fin;
         this.arreglo = arreglo;
@@ -25,7 +25,7 @@ class MiHilo extends Thread {
     }
 
     //Punto de entrada de hilo.
-    public void run() {
+    public void run() {        
         System.out.println(this.getName() + " iniciando.");
         try {
             for (int i = inicio; i <= fin; i++) {
