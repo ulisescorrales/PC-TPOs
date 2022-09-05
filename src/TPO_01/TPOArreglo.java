@@ -42,7 +42,7 @@ public class TPOArreglo {
         int fin;
         for(i=0;i<longitud;i++){            
             fin=cociente*(i+1);
-            if(i==sum.length-1){//Si es el último, sumar el resto
+            if(i==sum.length-1){//Si es el último, sumar el resto para el último hilo
                 fin=fin+resto-1;
             }
             sum[i]=crearYComenzar(inicio,fin,arr);                        
