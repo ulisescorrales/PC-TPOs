@@ -14,7 +14,7 @@ public class TPOArreglo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int cantHilo = 5; //Cantidad n de hilos
+        int cantHilo = 100; //Cantidad n de hilos
         Total total = new Total();//Objeto compartido
 
         //Arreglo de números aleatorios
@@ -44,7 +44,7 @@ public class TPOArreglo {
             sum[i] = crearYComenzar(inicio, fin, arr, tot);
             inicio = fin + 1;
         }
-        //Al último hilo se le da la responsabilidad  de sumar el resto        
+        //Al último hilo se le da la responsabilidad  de sumar el resto     
         fin = cociente * (i + 1);
         fin = fin + resto - 1;
         sum[i] = crearYComenzar(inicio, fin, arr, tot);

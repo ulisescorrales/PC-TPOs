@@ -13,7 +13,7 @@ public class Total {
         this.accum = 0;
     }
 
-    public synchronized void sumar(int numero) {
+    public void sumar(int numero) {
         accum = accum + numero;
     }
 

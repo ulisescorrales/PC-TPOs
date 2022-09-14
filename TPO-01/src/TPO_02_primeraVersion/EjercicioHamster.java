@@ -1,13 +1,10 @@
-package tpo2;
-import Hamster;
-import Plato;
-import Rueda;
+package TPO_02_primeraVersion;
 
 public class EjercicioHamster {
 
     public static void main(String[] args) {
-        int cantHamster = 3;        
-        
+        int cantHamster = 4;
+
         Hamaca hamaca = new Hamaca();
         Plato plato = new Plato();
         Rueda rueda = new Rueda();
@@ -22,18 +19,17 @@ public class EjercicioHamster {
         for (int i = 0; i < arreglo.length; i++) {
             try {
                 arreglo[i].join();
-            } catch (InterruptedException e) {
-                System.out.println("Error");
+            } catch (Exception e) {
+                System.out.println("ERROR");
             }
         }
         System.out.println("Programa terminado");
     }
 
     public static void llenarArreglo(Hamster[] arreglo, Hamaca hamaca, Plato plato, Rueda rueda) {
-        String nombre;
         for (int i = 0; i < arreglo.length; i++) {
-            nombre = "hamster"+"-" +( i + 1);
-            arreglo[i] = new Hamster(nombre, hamaca, plato, rueda);
+            //nombre = "hamster" + i + 1;
+            arreglo[i] = new Hamster( hamaca, plato, rueda);
         }
     }
 
