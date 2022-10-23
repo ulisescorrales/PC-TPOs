@@ -1,5 +1,7 @@
 package TPO_02;
 
+import java.util.Random;
+
 /*4) 
 
 En una tienda de mascotas están teniendo problemas para tener a todos sus hámster felices.
@@ -51,8 +53,11 @@ public class Hamster extends Thread {
     public void run() {
         int i = 0;
         boolean durmio = false, comio = false, jugo = false;
+        Random al=new Random();
+        int aleatorio;
         while (i < 3) {
             //Para hacer debugging es conveniente usar los println en el método syncronized
+            aleatorio=al.nextInt();
             if (!durmio && hamaca.usar()) {
                 usarHamaca();
                 durmio = true;
